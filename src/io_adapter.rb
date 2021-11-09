@@ -2,7 +2,7 @@
 
 require 'singleton'
 
-class IO_Adapter
+class IOAdapter
   include Singleton
 
   def write(str)

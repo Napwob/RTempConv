@@ -5,10 +5,10 @@ require_relative './../../src/states/read_value'
 require_relative './../../src/io_adapter'
 
 describe States::ReadSecondScale do
-  let(:adapter) { double 'IO_Adapter' }
+  let(:adapter) { double 'IOAdapter' }
 
   before do
-    allow(IO_Adapter).to receive(:instance).and_return(adapter)
+    allow(IOAdapter).to receive(:instance).and_return(adapter)
     allow(adapter).to receive(:write)
   end
 

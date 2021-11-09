@@ -23,7 +23,7 @@ module States
       rule = FORMULAS.find { |rule| rule[:first] == @firstscale && rule[:second] == @secondscale }
       result = rule[:func].call(@value)
 
-      IO_Adapter.instance.write("Result: #{@value.round(3)} °#{@firstscale} = #{result.round(3)} °#{@secondscale}")
+      IOAdapter.instance.write("Result: #{@value.round(3)} °#{@firstscale} = #{result.round(3)} °#{@secondscale}")
     end
 
     def next

@@ -13,14 +13,20 @@ describe States::CalculateValue do
   end
 
   describe '#execute' do
-    subject { described_class.new(first_scale: 'K', second_scale: 'F', value: '10') }
+    subject { described_class.new(first_scale: 'K', second_scale: 'F', value: '10').execute }
 
     context 'Result of convertation from 10 K to F' do
-      # it { is_expected.to be_a(States::ReadSecondScale) }
       it 'execution' do
-        subject.execute
+        subject
         expect(adapter).to have_received(:write).with('Result: 10 °K = -441.67 °F')
       end
+    end
+  end
+
+  describe '#next' do
+    subject { described_class.new(first_scale: 'K', second_scale: 'F', value: '10').next }
+    context 'Next state must be ReadFisrtScale' do
+      it { is_expected.to be_a(States::ReadFirstScale) }
     end
   end
 end

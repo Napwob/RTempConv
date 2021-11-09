@@ -20,8 +20,8 @@ module States
       @secondscale = context[:second_scale]
       @value = context[:value].to_i
 
-      searchrule
-
+      rule = searchrule
+      result = rule[:func].call(@value)
       IOAdapter.instance.write("Result: #{@value.round(3)} °#{@firstscale} = #{result.round(3)} °#{@secondscale}")
     end
 
